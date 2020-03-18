@@ -1,0 +1,51 @@
+.Loginform{
+    text-align: center;
+    padding: 10% 0 3em 0;
+    width: inherit;
+}
+body{
+    margin: 0;
+    background-color: #1c1c1c;
+}
+.passwordInput,.idInput{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 235px;
+    height: 35px;
+    background-color: black;
+    border: 0;
+    color: white;
+    padding-left: 15px;
+}
+.signinBtn{
+    margin-top: 30px;
+    width: 250px;
+    height: 35px;
+    background-color: black;
+    border: 0;
+    color: white;
+    font-size: 20px;
+}
+.newAccountBtn{
+    background-color: #1c1c1c;
+    color: gray;
+    width: 170px;
+    height: 40px;
+    border-radius: 30px;
+    border: 2px solid gray;
+}
+.idInput {
+    background-image : url('/public/images/userimg.png');
+    background-size: 25px;
+    background-position:95% 50%;
+    background-repeat:no-repeat;
+}
+.passwordInput {
+    background-image : url('/public/images/lock.png');
+    background-size: 25px;
+    background-position:95% 50%; 
+    background-repeat:no-repeat;
+}
+input:focus{
+    outline: none;
+}

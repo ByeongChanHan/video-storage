@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUTUBE MUSIC SAVE SERVICE</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/public/stylesheets/MainDesign.css">
+    <link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet">
+    <script>
+        var onoff = false;
+
+        function SelectTitle(){
+            var getDeleteForm = document.querySelector(".clickTitle");
+            // clicktitle id 를 가져옴 태그 생성할때 clickTitle이라는 클래스를 남기고감
+            var DeleteForm = document.querySelector(".Isdelete");
+            if(onoff == false){
+                // onoff가 false일때
+            var Selectsuccess = document.createElement("div");
+            Selectsuccess.setAttribute("class","Isdelete");
+            // 삭제 폼을 div class = "Isdelete"로 설정
+            var DeleteBtn = document.createElement("button");
+            DeleteBtn.setAttribute("class","removeItem");
+            DeleteBtn.innerText = "삭제";
+            // <button class = "removeItem">삭제</button> 생성
+            Selectsuccess.appendChild(DeleteBtn);
+            // div 폼에 추가
+            getDeleteForm.appendChild(Selectsuccess);
+            // 버튼은 div의 자식이니까 같이 추가
+            onoff = true;
+            $(".Isdelete").fadeTo(1000,1);
+            }
+            else if(onoff == true){
+                $(".Isdelete").fadeTo(1000,0);
+                // 투명도 0으로 페이드아웃 총 1초에 서서히
+                setTimeout(function(){
+                    getDeleteForm.removeChild(DeleteForm);
+                    onoff = false;
+                // 다시 클릭하면 킬수있게 바꿈
+                },1000);
+                // 1초지나면 폼 태그도 지움
+            }
+        }
+    </script>
+</head>
+<body>
+    <header class = "hd">
+            <nav id ="navi">
+            <a href="" id = "navi" target="_self">YMUSIC</a>
+            <!-- 사이트 제목 -->
+            <a href="" id = "Selectmenu" target="_self" style="text-decoration: none; color: white;">HOME</a>
+            <!-- home으로 가는 경로 설정 -->
+            <form action="/musiclist" method="POST">
+            <input type="submit" value="MUSICLIST" id = "Selectmenu" style="color:white; font-family: 'Odibee Sans', cursive; background-color: transparent; border: 0;">
+            </form>
+            <a href="#uploadSection" id = "Selectmenu" style="text-decoration: none; color: white;">REGISTER</a>
+            <!-- 유튜브 주소 쓰는곳으로 이동 -->
+            <form action="/login" method="POST">
+                <input type="submit" value="LOG IN" id = "Selectmenu" style="color:white; font-family: 'Odibee Sans', cursive; background-color: transparent; border: 0;">
+                </form>
+            </nav>
+    </header>
+    <section id = "banner">
+        <video id ="mainVideo" preload="auto" autoplay="true" loop="loop" muted="muted">
+            <source src="/public/images/video.mp4" type="video/mp4">
+        </video>
+        <!-- 메인 배경 비디오 부분 -->
+        <p class ="siteExplain">
+            You can save your youtube music<br> with our service
+        </p>
+        <!-- 사이트 설명 글 -->
+    </section>
+    <fieldset id ="video">
+        <!-- 비디오 들어갈 자리 -->
+    </fieldset>
+    <footer id ="uploadSection">
+    <b>Please paste youtube Address on this space</b><br>
+    <input type="text" id="siteAddress">
+    <!-- 사이트 입력 부분 -->
+    <button id="Uploadbtn">
+        upload
+    </button>
+    <!-- 업로드 버튼 -->
+    <button class ="gosearchArea">
+    <p>Go to search area</p>
+    <img src="/public/images/up-arrow.png" id = "arrowIcon">
+    </button>
+    <!-- 검색지역으로 이동 -->
+    </footer>
+    <!-- 밑부분 업로드 영역 -->
+    <script type="text/javascript" src="/public/javascripts/main.js"></script>
+</body>
+</html>
